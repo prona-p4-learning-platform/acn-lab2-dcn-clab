@@ -1,0 +1,44 @@
+name: acn-dcn-s1
+
+mgmt:
+  network: fixedips
+  ipv4_subnet: 172.100.100.0/24
+  ipv6_subnet: 2001:172:100:100::/80
+
+topology:
+  nodes:
+    ceos1:
+      kind: ceos
+      image: ceos:4.26.1F
+      startup-config: config/acn-dcn-scenario1-mstp-ceos1.cfg
+      mgmt_ipv4: 172.100.100.10
+      mgmt_ipv6: 2001:172:100:100::10
+    ceos2:
+      kind: ceos
+      image: ceos:4.26.1F
+      startup-config: config/acn-dcn-scenario1-mstp-ceos2.cfg
+      mgmt_ipv4: 172.100.100.20
+      mgmt_ipv6: 2001:172:100:100::20
+    ceos3:
+      kind: ceos
+      image: ceos:4.26.1F
+      startup-config: config/acn-dcn-scenario1-mstp-ceos3.cfg
+      mgmt_ipv4: 172.100.100.30
+      mgmt_ipv6: 2001:172:100:100::30
+    ceos4:
+      kind: ceos
+      image: ceos:4.26.1F
+      startup-config: config/acn-dcn-scenario1-mstp-ceos4.cfg
+      mgmt_ipv4: 172.100.100.40
+      mgmt_ipv6: 2001:172:100:100::40
+  links:
+    - endpoints: ["ceos1:eth1","ceos2:eth1"]
+    - endpoints: ["ceos1:eth2","ceos2:eth2"]
+    - endpoints: ["ceos1:eth3","ceos3:eth3"]
+    - endpoints: ["ceos1:eth4","ceos3:eth4"]
+    - endpoints: ["ceos2:eth3","ceos3:eth1"]
+    - endpoints: ["ceos2:eth4","ceos3:eth2"]
+    - endpoints: ["ceos2:eth5","ceos4:eth1"]
+    - endpoints: ["ceos2:eth6","ceos4:eth2"]
+    - endpoints: ["ceos3:eth5","ceos4:eth3"]
+    - endpoints: ["ceos3:eth6","ceos4:eth4"]
