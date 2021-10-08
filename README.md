@@ -22,11 +22,13 @@ Run containerlab and use the scenarios.
 
 # Lab Topologies and Scenarios
 
-[scenario1-mstp.md]
-[scenario2-lacp.md]
-[scenario3-mlag.md]
+[Scenario 1 MSTP](scenario1-mstp.md)
 
-[fabric.md]
+[Scenario 2 LACP](scenario2-lacp.md)
+
+[Scenario 3 MLAG](scenario3-mlag.md)
+
+[Fabric / Leaf-Spine Topology](fabric.md)
 
 ## Hints, CLI help, SSH access, external/remote access
 
